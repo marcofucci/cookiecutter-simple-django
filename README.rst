@@ -5,32 +5,12 @@ A cookiecutter_ template for Django.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
 
-Features
----------
-
-* Cutting edge: For Django 1.6 and other bleeding edge stuff
-* Twitter Bootstrap 3
-* AngularJS
-* Registration via django-allauth
-* User avatars via django-avatar
-* Procfile for deploying to Heroku
-* Heroku optimized requirements
-* Basic caching setup
-
-Constraints
+Description
 -----------
 
-* Only maintained 3rd party libraries are used.
-* PostgreSQL everywhere
-* Environment variables for configuration (This won't work with Apache/mod_wsgi)
+Lighter version of the Daniel Greenfeld's cookiecutter-django.
 
-Caution: Bleeding Edge Requirements
-------------------------------------
-
-The cookiecutter-django project is bleeding edge in that it uses unreleased versions of several packages like Django,
-South, django-crispy-forms, django-avatar, and more. 
-
-Consider yourself warned.
+It uses the latest stable versions and it only defines a skeleton which can be extended as needed.
 
 Usage
 ------
@@ -44,7 +24,7 @@ First, get cookiecutter. Trust me, it's awesome::
 
 Now run it against this repo::
 
-    $ cookiecutter https://github.com/pydanny/cookiecutter-dj-project.git
+    $ cookiecutter  https://github.com/marcofucci/cookiecutter-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
@@ -83,12 +63,6 @@ Create a GitHub repo and push it there::
 Now take a look at your repo. Awesome, right?
 
 It's time to write the code!!!
-    
-
-"Your Stuff"
--------------
-
-Scattered throughout the Python and HTML of this project are places marked with "your stuff". This is where third-party libraries are to be integrated with your project.
 
 
 Not Exactly What You Want?
@@ -105,7 +79,7 @@ It's up to you whether or not to rename your fork.
 
 If you do rename your fork, I encourage you to submit it to the following places:
 
-* cookiecutter_ so it gets listed in the README as a template. 
+* cookiecutter_ so it gets listed in the README as a template.
 * The cookiecutter grid_ on Django Packages.
 
 .. _cookiecutter: https://github.com/audreyr/cookiecutter
@@ -115,4 +89,4 @@ Or Submit a Pull Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 I also accept pull requests on this, if they're small, atomic, and if they make my own project development
-experience better. 
+experience better.

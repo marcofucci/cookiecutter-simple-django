@@ -20,37 +20,49 @@ and then editing the results to include your name, email, and various configurat
 
 First, get cookiecutter. Trust me, it's awesome::
 
+Set up your virtualenv
+    $ cd <your-envs-folder>
+    $ virtualenv  --no-site-packages redditclone
+    $ cd redditclone
+    $ source bin/activate
     $ pip install cookiecutter
 
 Now run it against this repo::
 
+    $ cd <your-workspace>
     $ cookiecutter  https://github.com/marcofucci/cookiecutter-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
 
-**Warning**: After this point, change 'Daniel Greenfeld', 'pydanny', etc to your own information.
+**Warning**: After this point, change 'Marco Fucci', etc to your own information.
 
 It prompts you for questions. Answer them::
 
-    Cloning into 'cookiecutter-dj-project'...
-    remote: Counting objects: 49, done.
-    remote: Compressing objects: 100% (33/33), done.
-    remote: Total 49 (delta 6), reused 48 (delta 5)
-    Unpacking objects: 100% (49/49), done.
-    full_name (default is "Your full name here")? Daniel Greenfeld
-    email (default is "you@example.com")? pydanny@gmail.com
-    project_name (default is "dj-project")? redditclone
-    app_name (default is "djproject")? redditclone
-    project_short_description (default is "Your project description goes here")? A reddit clone.
-    release_date (default is "2013-08-15")? 2013-08-15
-    year (default is "2013")? 2013
-    version (default is "0.1.0")? 0.3.0
+    Cloning into 'cookiecutter-django'...
+    remote: Counting objects: 443, done.
+    remote: Compressing objects: 100% (242/242), done.
+    remote: Total 443 (delta 196), reused 419 (delta 176)
+    Receiving objects: 100% (443/443), 119.91 KiB | 0 bytes/s, done.
+    Resolving deltas: 100% (196/196), done.
+    project_name (default is "project_name")? redditclone
+    repo_name (default is "repo_name")? redditclone
+    author_name (default is "Your Name")? Marco Fucci
+    email (default is "Your email")? <your-email>
+    description (default is "A short description of the project.")? A reddit clone
+    year (default is "Current year")? 2013
 
 Enter the project and take a look around::
 
     $ cd redditclone/
     $ ls
+    $ pip install -r requirements/local.txt
+    $ python ./manage.py syncdb
+    $ python ./manage.py migrate
+    $ python ./manage.py runserver
+
+and load localhost:8000/admin
+
 
 Create a GitHub repo and push it there::
 

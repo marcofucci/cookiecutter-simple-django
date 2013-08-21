@@ -20,7 +20,8 @@ and then editing the results to include your name, email, and various configurat
 
 First, get cookiecutter. Trust me, it's awesome::
 
-Set up your virtualenv
+Set up your virtualenv::
+
     $ cd <your-envs-folder>
     $ virtualenv  --no-site-packages redditclone
     $ cd redditclone

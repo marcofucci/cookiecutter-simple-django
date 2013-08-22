@@ -70,7 +70,7 @@ Create a GitHub repo and push it there::
     $ git init
     $ git add .
     $ git commit -m "first awesome commit!"
-    $ git remote add origin git@github.com:pydanny/redditclone.git
+    $ git remote add origin git@github.com:marcofucci/redditclone.git
     $ git push -u origin master
 
 Now take a look at your repo. Awesome, right?

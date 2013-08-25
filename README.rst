@@ -31,7 +31,7 @@ Set up your virtualenv::
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/marcofucci/cookiecutter-django.git
+    $ cookiecutter  https://github.com/marcofucci/cookiecutter-simple-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 

@@ -20,7 +20,8 @@ and then editing the results to include your name, email, and various configurat
 
 First, get cookiecutter. Trust me, it's awesome::
 
-Set up your virtualenv
+Set up your virtualenv::
+
     $ cd <your-envs-folder>
     $ virtualenv  --no-site-packages redditclone
     $ cd redditclone
@@ -30,7 +31,7 @@ Set up your virtualenv
 Now run it against this repo::
 
     $ cd <your-workspace>
-    $ cookiecutter  https://github.com/marcofucci/cookiecutter-django.git
+    $ cookiecutter  https://github.com/marcofucci/cookiecutter-simple-django.git
 
 You'll be prompted for some questions, answer them, then it will create a Django project for you.
 
@@ -69,7 +70,7 @@ Create a GitHub repo and push it there::
     $ git init
     $ git add .
     $ git commit -m "first awesome commit!"
-    $ git remote add origin git@github.com:pydanny/redditclone.git
+    $ git remote add origin git@github.com:marcofucci/redditclone.git
     $ git push -u origin master
 
 Now take a look at your repo. Awesome, right?

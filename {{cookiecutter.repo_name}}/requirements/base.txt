@@ -1,8 +1,12 @@
-django<1.6
+# Versions are left out on purpose in order for you to use the latest ones.
+# After the first "pip install -r", just run "pip freeze" and add the version
+# to each package in each requirements/*.txt.
 
-django-model-utils==1.4.0
+django
 
-psycopg2==2.5
-South==0.7.6
+django-model-utils
 
-Pillow==2.1.0
+psycopg2
+South
+
+Pillow

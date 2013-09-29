@@ -1,3 +1,4 @@
+
 cookiecutter-django
 =======================
 
@@ -53,7 +54,7 @@ It prompts you for questions. Answer them::
     description (default is "A short description of the project.")? A reddit clone
     year (default is "Current year")? 2013
 
-Enter the project and take a look around::
+Set up the project::
 
     $ cd redditclone/
     $ ls
@@ -73,9 +74,19 @@ Create a GitHub repo and push it there::
     $ git remote add origin git@github.com:marcofucci/redditclone.git
     $ git push -u origin master
 
-Now take a look at your repo. Awesome, right?
+**Note**: The ``requirements`` files don't define any package versions because it makes
+more sense for you to use the latest ones when you set up your
+project. After that point though, you really want to take note of the specific
+versions installed so that they are not going to get updated without you knowing it.
 
-It's time to write the code!!!
+In order to do this, just activate your virtual environment, pip freeze it and
+update your requirements files::
+
+    $ activate <your-envs-folder>/redditclone/bin/activate
+    $ pip freeze
+    $ # now open requirements/* and note down the versions used.
+
+Now, it's time to write the code!!!
 
 
 Not Exactly What You Want?

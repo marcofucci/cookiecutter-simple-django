@@ -1,4 +1,3 @@
-
 cookiecutter-django
 =======================
 
@@ -53,6 +52,11 @@ It prompts you for questions. Answer them::
     email (default is "Your email")? <your-email>
     description (default is "A short description of the project.")? A reddit clone
     year (default is "Current year")? 2013
+    with_documentation (default is "yes")? yes
+
+If you are using cookiecutter < 0.7 and you answered *no* to *with_documentation*, you might want to delete the ``docs`` 
+folder. 
+From version 0.7+, that folder is automatically deleted for you.
 
 Set up the project::
 

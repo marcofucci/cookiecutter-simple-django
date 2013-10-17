@@ -58,7 +58,8 @@ If you are using cookiecutter < 0.7 and you answered *no* to *with_documentation
 folder. 
 From version 0.7+, that folder is automatically deleted for you.
 
-Set up the project::
+
+Create the database ``redditclone`` and then set up your project::
 
     $ cd redditclone/
     $ ls

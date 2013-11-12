@@ -1,2 +1,1 @@
-Daniel Greenfeld
-Marco Fucci
+{{cookiecutter.author_name}}

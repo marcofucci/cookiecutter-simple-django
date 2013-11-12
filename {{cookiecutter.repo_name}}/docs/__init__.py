@@ -1,1 +1,1 @@
-# Included so that Django's startproject comment runs against the docs directory
+# Included so Django's startproject command runs against the docs directory

@@ -1,8 +1,13 @@
 from .base import *
+import os
 
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+
+SECRET_KEY = os.environ["SECRET_KEY"]
+
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'localhost').split(',')
 
 ADMINS = (
     ('{{cookiecutter.author_name}}', '{{cookiecutter.email}}'),
@@ -10,14 +15,13 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '{{cookiecutter.repo_name}}',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
+        'HOST': os.environ.get('DB_HOST', ''),
         'PORT': '',
     }
 }

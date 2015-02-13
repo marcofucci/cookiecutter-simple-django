@@ -2,7 +2,7 @@ from .base import *
 import os
 
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 SECRET_KEY = os.environ["SECRET_KEY"]

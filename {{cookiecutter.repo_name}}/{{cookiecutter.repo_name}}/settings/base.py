@@ -82,6 +82,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_ROOT = root('assets', 'uploads')
+MEDIA_URL = '/media/'
+
 # Additional locations of static files
 
 STATICFILES_DIRS = (

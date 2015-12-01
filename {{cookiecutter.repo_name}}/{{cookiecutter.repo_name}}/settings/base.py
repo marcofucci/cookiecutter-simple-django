@@ -15,7 +15,6 @@ SECRET_KEY = 'CHANGE THIS!!!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = []
 
@@ -91,9 +90,27 @@ STATICFILES_DIRS = (
     root('assets'),
 )
 
-TEMPLATE_DIRS = (
-    root('templates'),
-)
+TEMPLATES = [
+    {
+        'DEBUG': DEBUG,
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            root('templates'),
+        ],
+	    'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    }
+]
 
 
 # .local.py overrides all the common settings.

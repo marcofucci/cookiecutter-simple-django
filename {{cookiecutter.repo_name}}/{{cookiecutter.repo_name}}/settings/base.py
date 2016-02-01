@@ -92,13 +92,13 @@ STATICFILES_DIRS = (
 
 TEMPLATES = [
     {
-        'DEBUG': DEBUG,
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'APP_DIRS': True,
         'DIRS': [
             root('templates'),
         ],
-	    'OPTIONS': {
+        'OPTIONS': {
+            'debug': DEBUG,
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',

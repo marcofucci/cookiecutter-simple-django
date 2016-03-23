@@ -1,9 +1,9 @@
-from .base import *
+from .base import *  # noqa
 import os
 
 
 DEBUG = False
-TEMPLATES['DEBUG'] = DEBUG
+TEMPLATES['OPTIONS']['debug'] = DEBUG
 
 SECRET_KEY = os.environ["SECRET_KEY"]
 

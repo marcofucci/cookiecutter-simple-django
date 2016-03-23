@@ -1,11 +1,10 @@
+import os
 import sys
-from os.path import join, abspath, dirname
 
 # PATH vars
 
-here = lambda *x: join(abspath(dirname(__file__)), *x)
-PROJECT_ROOT = here("..")
-root = lambda *x: join(abspath(PROJECT_ROOT), *x)
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+root = lambda *x: os.path.join(BASE_DIR, *x)
 
 sys.path.insert(0, root('apps'))
 
@@ -15,25 +14,27 @@ SECRET_KEY = 'CHANGE THIS!!!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+IN_TESTING = sys.argv[1:2] == ['test']
 
 ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles'
-)
+]
 
-PROJECT_APPS = ()
+PROJECT_APPS = []
 
 INSTALLED_APPS += PROJECT_APPS
 
-MIDDLEWARE_CLASSES = (
+MIDDLEWARE_CLASSES = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -41,7 +42,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-)
+]
 
 ROOT_URLCONF = '{{cookiecutter.repo_name}}.urls'
 
@@ -49,7 +50,6 @@ ROOT_URLCONF = '{{cookiecutter.repo_name}}.urls'
 WSGI_APPLICATION = '{{cookiecutter.repo_name}}.wsgi.application'
 
 # Database
-# https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
@@ -57,17 +57,16 @@ DATABASES = {
         'NAME': '{{cookiecutter.repo_name}}',
         'USER': 'postgres',
         'PASSWORD': '',
-        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': '',                      # Set to empty string for default.
+        'HOST': '',  # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'PORT': '',  # Set to empty string for default.
     }
 }
 
 # Internationalization
-# https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-gb'
 
-TIME_ZONE = 'UTC'  # 'Europe/London'
+TIME_ZONE = 'UTC'
 
 USE_I18N = False
 
@@ -77,12 +76,9 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = root('assets', 'uploads')
-MEDIA_URL = '/media/'
 
 # Additional locations of static files
 
@@ -112,14 +108,31 @@ TEMPLATES = [
     }
 ]
 
+# Password validation
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
 
 # .local.py overrides all the common settings.
 try:
-    from .local import *
+    from .local import *  # noqa
 except ImportError:
     pass
 
 
 # importing test settings file if necessary
-if len(sys.argv) > 1 and 'test' in sys.argv[1]:
-    from .testing import *
+if IN_TESTING:
+    from .testing import *  # noqa

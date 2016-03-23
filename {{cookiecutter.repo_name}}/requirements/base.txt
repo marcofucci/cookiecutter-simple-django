@@ -2,7 +2,7 @@
 # After the first "pip install -r", just run "pip freeze" and add the version
 # to each package in each requirements/*.txt.
 
-django
+Django
 
 django-model-utils
 

@@ -1,4 +1,4 @@
-from .base import *
+from .base import *  # noqa
 
 
 ADMINS = (
@@ -20,14 +20,10 @@ DATABASES = {
 
 
 # You might want to use sqlite3 for testing in local as it's much faster.
-if len(sys.argv) > 1 and 'test' in sys.argv[1]:
+if IN_TESTING:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': '/tmp/{{cookiecutter.repo_name}}_test.db',
-            'USER': '',
-            'PASSWORD': '',
-            'HOST': '',
-            'PORT': '',
         }
     }

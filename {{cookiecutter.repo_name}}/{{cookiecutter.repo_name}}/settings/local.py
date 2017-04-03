@@ -8,13 +8,15 @@ ADMINS = (
 MANAGERS = ADMINS
 
 DATABASES = {
-    'default': {
+    'default': { {% if cookiecutter.use_sqlite_as_local_db_engine == 'yes' %}
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': '{{cookiecutter.repo_name}}.db',{% else %}
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': '{{cookiecutter.repo_name}}',
         'USER': 'postgres',
         'PASSWORD': '',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '',{% endif %}
     }
 }
 
